@@ -1,16 +1,13 @@
 import React from "react"
-import logo from "./logo.svg"
-import "./assets/scss/style.scss"
+import "./index.css"
 import { BrowserRouter as Router, Route } from "react-router-dom"
-// okokok
+import { LandingPage } from "pages"
 function App() {
   return (
     <div className="App">
-      {/* <Route>
-        <Route></Route>
-        <Route></Route>
-        <Route></Route>
-      </Route> */}
+      <Router>
+        <Route exact path="/" component={LandingPage}></Route>
+      </Router>
     </div>
   )
 }
