@@ -7,7 +7,7 @@ export default function IconText() {
   return (
     <Typography className={classes.title} color="secondary" noWrap>
       <a className={classes.title} style={{ cursor: " pointer" }}>
-        Material<span style={{ color: "#ff414d" }}>-UI</span>
+        Material <span style={{ color: "#ff414d" }}>-UI</span>
       </a>
     </Typography>
   )

@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Fade from "react-reveal/Fade"
 import { fade, makeStyles } from "@material-ui/core/styles"
 import AppBar from "@material-ui/core/AppBar"
 import Toolbar from "@material-ui/core/Toolbar"
@@ -6,7 +7,7 @@ import Grid from "@material-ui/core/Grid"
 import IconButton from "@material-ui/core/IconButton"
 import Typography from "@material-ui/core/Typography"
 import InputBase from "@material-ui/core/InputBase"
-import { Button, Link } from "@material-ui/core"
+import { Button, Link, TextField } from "@material-ui/core"
 import SearchIcon from "@material-ui/icons/Search"
 import Badge from "@material-ui/core/Badge"
 import MenuItem from "@material-ui/core/MenuItem"
@@ -31,7 +32,11 @@ export default function Header() {
 
   const isMenuOpen = Boolean(anchorEl)
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
-  const clickSearch = (val) => {
+  const endSearch = (event) => {
+    console.log("ini tes", event)
+    setIsSearch(!isSearch)
+  }
+  const clickSearch = () => {
     setIsSearch(!isSearch)
 
     console.log("ini klik", isSearch)
@@ -199,82 +204,92 @@ export default function Header() {
           spacing={1}
           style={{ marginLeft: "30%", marginRight: "30%" }}
         >
-          <Grid item xs align="center">
-            <IconText />
-          </Grid>
-          <Grid item xs align="center">
-            <Typography
-              className={classes.title}
-              color="secondary"
-              noWrap
-              item
-              xs={3}
-            >
-              <Link
-                href="#"
-                color="inherit"
+          {!isSearch && (
+            <Grid className={classes.search} item xs align="center">
+              <IconText />
+            </Grid>
+          )}
+          {!isSearch && (
+            <Grid item xs align="center">
+              <Typography
+                className={classes.title}
+                color="secondary"
                 noWrap
-                style={{ textDecoration: "none" }}
+                item
+                xs={3}
               >
-                Home
-              </Link>
-            </Typography>
-          </Grid>
-          <Grid item xs align="center">
-            <Typography
-              className={classes.title}
-              color="secondary"
-              noWrap
-              item
-              xs={3}
-            >
-              <Link
-                href="#"
-                color="inherit"
+                <Link
+                  href="#"
+                  color="inherit"
+                  noWrap
+                  style={{ textDecoration: "none" }}
+                >
+                  Home
+                </Link>
+              </Typography>
+            </Grid>
+          )}
+          {!isSearch && (
+            <Grid item xs align="center">
+              <Typography
+                className={classes.title}
+                color="secondary"
                 noWrap
-                style={{ textDecoration: "none" }}
+                item
+                xs={3}
               >
-                About
-              </Link>
-            </Typography>
-          </Grid>
-          <Grid item xs align="center">
-            <Typography
-              className={classes.title}
-              color="secondary"
-              noWrap
-              item
-              xs={3}
-            >
-              <Link
-                href="#"
-                color="inherit"
+                <Link
+                  href="#"
+                  color="inherit"
+                  noWrap
+                  style={{ textDecoration: "none" }}
+                >
+                  About
+                </Link>
+              </Typography>
+            </Grid>
+          )}
+          {!isSearch && (
+            <Grid item xs align="center">
+              <Typography
+                className={classes.title}
+                color="secondary"
                 noWrap
-                style={{ textDecoration: "none" }}
+                item
+                xs={3}
               >
-                Gallery
-              </Link>
-            </Typography>
-          </Grid>
-          <Grid item xs align="center">
-            <Typography
-              className={classes.title}
-              color="secondary"
-              noWrap
-              item
-              xs={3}
-            >
-              <Link
-                href="#"
-                color="inherit"
+                <Link
+                  href="#"
+                  color="inherit"
+                  noWrap
+                  style={{ textDecoration: "none" }}
+                >
+                  Gallery
+                </Link>
+              </Typography>
+            </Grid>
+          )}
+          {!isSearch && (
+            <Grid item xs align="center">
+              <Typography
+                className={classes.title}
+                color="secondary"
                 noWrap
-                style={{ textDecoration: "none" }}
+                item
+                xs={3}
               >
-                Contact
-              </Link>
-            </Typography>
-          </Grid>
-          <Grid item xs align="center">
+                <Link
+                  href="#"
+                  color="inherit"
+                  noWrap
+                  style={{ textDecoration: "none" }}
+                >
+                  Contact
+                </Link>
+              </Typography>
+            </Grid>
+          )}
+          <Grid item xs align={isSearch ? "right" : "center"}>
             <Typography
               className={classes.title}
               color="secondary"
@@ -285,6 +300,20 @@ export default function Header() {
               <SearchIcon onClick={clickSearch} />
             </Typography>
           </Grid>
+          {isSearch && (
+            <Grid item xs={6} align="center">
+              <Typography>
+                <TextField
+                  id="standard-basic"
+                  margin="none"
+                  // endAdornment={tes}
+                  onBlur={endSearch}
+                  multiline
+                  fullWidth
+                />
+              </Typography>
+            </Grid>
+          )}
         </Grid>
       </Grid>
     </AppBar>
