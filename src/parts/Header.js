@@ -289,29 +289,34 @@ export default function Header() {
               </Typography>
             </Grid>
           )}
-          <Grid item xs align={isSearch ? "right" : "center"}>
-            <Typography
-              className={classes.title}
-              color="secondary"
-              noWrap
-              item
-              xs={3}
-            >
-              <SearchIcon onClick={clickSearch} />
-            </Typography>
-          </Grid>
+          {!isSearch && (
+            <Grid item xs align="center">
+              <Typography
+                className={classes.title}
+                color="secondary"
+                noWrap
+                item
+                xs={3}
+              >
+                <SearchIcon onClick={clickSearch} />
+              </Typography>
+            </Grid>
+          )}
           {isSearch && (
-            <Grid item xs={6} align="center">
-              <Typography>
+            <Grid item xs container align="center" spacing={1}>
+              <Grid item xs={11}>
                 <TextField
+                  item
                   id="standard-basic"
                   margin="none"
-                  // endAdornment={tes}
                   onBlur={endSearch}
-                  multiline
+                  multiline={false}
                   fullWidth
-                />
-              </Typography>
+                ></TextField>
+              </Grid>
+              <Grid item xs align="left">
+                <SearchIcon onClick={clickSearch}></SearchIcon>
+              </Grid>
             </Grid>
           )}
         </Grid>
