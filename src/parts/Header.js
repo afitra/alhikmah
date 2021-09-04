@@ -26,9 +26,14 @@ export default function Header() {
   const classes = getStyle({
     colorTitle: purple[100],
   })
+
+  // ==================== STATE ===========================
+
   const [isSearch, setIsSearch] = useState(false)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null)
+
+  // ==================== STATE ===========================
 
   const isMenuOpen = Boolean(anchorEl)
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl)
@@ -114,77 +119,6 @@ export default function Header() {
       </MenuItem>
     </Menu>
   )
-
-  // return (
-  //   <ThemeProvider theme={getColor}>
-  //     <Grid className={classes.grow}>
-  //       <AppBar position="static">
-  //         <Toolbar>
-  //           <IconButton
-  //             item
-  //             edge="start"
-  //             className={classes.menuButton}
-  //             color="inherit"
-  //             aria-label="open drawer"
-  //             noWrap
-  //           >
-  //             <MenuIcon />
-  //           </IconButton>
-  //           <Typography
-  //             className={classes.title}
-  //             variant="h6"
-  //             color="secondary"
-  //             noWrap
-  //           >
-  //             <a className={classes.title} style={{ cursor: " pointer" }}>
-  //               Hiziib
-  //             </a>
-  //           </Typography>
-
-  //           <div className={classes.grow} />
-  //           <div className={classes.sectionDesktop}>
-  //             <IconButton aria-label="show 4 new mails" color="inherit">
-  //               <Badge badgeContent={4} color="secondary">
-  //                 <MailIcon />
-  //               </Badge>
-  //             </IconButton>
-  //             <IconButton
-  //               aria-label="show 17 new notifications"
-  //               color="inherit"
-  //             >
-  //               <Badge badgeContent={17} color="secondary">
-  //                 <NotificationsIcon />
-  //               </Badge>
-  //             </IconButton>
-  //             <IconButton
-  //               edge="end"
-  //               aria-label="account of current user"
-  //               aria-controls={menuId}
-  //               aria-haspopup="true"
-  //               onClick={handleProfileMenuOpen}
-  //               color="inherit"
-  //             >
-  //               <AccountCircle />
-  //             </IconButton>
-  //           </div>
-  //           <div className={classes.sectionMobile}>
-  //             <IconButton
-  //               aria-label="show more"
-  //               aria-controls={mobileMenuId}
-  //               aria-haspopup="true"
-  //               onClick={handleMobileMenuOpen}
-  //               color="inherit"
-  //             >
-  //               <MoreIcon />
-  //             </IconButton>
-  //           </div>
-  //         </Toolbar>
-  //       </AppBar>
-  //       {renderMobileMenu}
-  //       {renderMenu}
-  //     </Grid>
-  //   </ThemeProvider>
-  // )
 
   return (
     <AppBar style={{ position: "relative" }}>
