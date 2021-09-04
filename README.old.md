@@ -1,2 +1,0 @@
-# alhikmah
-React - Express - Postgres
